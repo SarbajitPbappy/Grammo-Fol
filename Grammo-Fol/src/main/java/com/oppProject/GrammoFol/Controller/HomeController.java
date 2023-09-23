@@ -2,6 +2,7 @@ package com.oppProject.GrammoFol.Controller;
 
 import com.oppProject.GrammoFol.Service.CategoryService;
 import com.oppProject.GrammoFol.Service.ProductService;
+import com.oppProject.GrammoFol.global.GlobalData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,24 +17,29 @@ public class HomeController {
     ProductService productService;
     @GetMapping({"/", "/home"})
     public  String home(Model model){
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "index";
     }
     @GetMapping("/shop")
     public  String shop(Model model){
         model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("products" ,productService.getAllProduct());
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "shop";
     }
     @GetMapping("/shop/category/{id}")
     public  String shopByCategory(Model model , @PathVariable int id){
         model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("products" ,productService.getAllProductsByCategoryId(id));
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "shop";
     }
     @GetMapping("/shop/viewproduct/{id}")
     public  String viewProduct(Model model , @PathVariable int id){
         model.addAttribute("product", productService.getProductById(id).get());
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "viewProduct";
     }
+
 }
 
