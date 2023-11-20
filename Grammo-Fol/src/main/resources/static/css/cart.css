@@ -4,12 +4,7 @@ body {
 }
 
 /* Style the navigation bar */
-.navbar {
-    background-color: #2196F3; /* Blue background color */
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
+
 
 /* Style the navbar links */
 .navbar-nav .nav-link {

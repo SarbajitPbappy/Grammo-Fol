@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 public class AdminController {
     //uploadDIR
-    public static String uploadDir = System.getProperty("user.dir") + "/Grammo-Fol/src/main/resources/static/productImages";
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
     @Autowired
     CategoryService categoryService;
     @Autowired
